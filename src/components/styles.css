@@ -1,0 +1,18 @@
+.content-one {
+  background-image: linear-gradient(to right, #0daabc, rgba(13, 170, 188, 0)),
+    url("../assets/FirstImage.png");
+  background-repeat: no-repeat, no-repeat;
+  background-size:
+    400px 100%,
+    auto;
+  background-position:
+    left top,
+    right -60px top -70px; /* Position gradient on the left and image as needed */
+}
+
+.content-two {
+  background-image: url("../assets/SecondImage.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: right bottom; /* Position gradient on the left and image as needed */
+}
