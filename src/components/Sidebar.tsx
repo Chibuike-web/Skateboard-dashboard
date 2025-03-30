@@ -4,6 +4,7 @@ import Menu from "./Menu";
 
 export default function Sidebar() {
   const [toggle, setToggle] = useState<boolean>(true);
+
   return (
     <div>
       <aside className="flex flex-col px-[32px] py-[38px]">

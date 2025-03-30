@@ -5,7 +5,7 @@ import {
   PlaylistIcon,
   StreamingIcon,
   TrendingIcon,
-} from "./icon";
+} from "./Icon";
 
 interface IconProps {
   color?: string;
@@ -16,23 +16,24 @@ interface IconProps {
 }
 
 export interface MenuItem {
+  id: number;
   name: string;
   icon: ComponentType<IconProps>;
 }
 
 export const menu: MenuItem[] = [
-  { name: "Discover", icon: HomeIcon },
-  { name: "Trending", icon: TrendingIcon },
-  { name: "Streaming", icon: StreamingIcon },
-  { name: "Playlist", icon: PlaylistIcon },
-  { name: "Bookmark", icon: BookmarkIcon },
+  { id: 1, name: "Discover", icon: HomeIcon },
+  { id: 2, name: "Trending", icon: TrendingIcon },
+  { id: 3, name: "Streaming", icon: StreamingIcon },
+  { id: 4, name: "Playlist", icon: PlaylistIcon },
+  { id: 5, name: "Bookmark", icon: BookmarkIcon },
 ];
 
 export const category: MenuItem[] = [
-  { name: "Live Stream", icon: HomeIcon },
-  { name: "Tutorial", icon: TrendingIcon },
-  { name: "Competition", icon: StreamingIcon },
-  { name: "Community", icon: PlaylistIcon },
+  { id: 1, name: "Live Stream", icon: HomeIcon },
+  { id: 2, name: "Tutorial", icon: TrendingIcon },
+  { id: 3, name: "Competition", icon: StreamingIcon },
+  { id: 4, name: "Community", icon: PlaylistIcon },
 ];
 
 export const hexToRgba = (hex: string, opacity: number): string => {

@@ -2,25 +2,10 @@ import { useState } from "react";
 import { MenuItem, menu, hexToRgba } from "./Data";
 
 export default function Menu() {
-  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
-
-  // Background color function
-  const getBackgroundColor = (index: number) => {
-    if (index === 0) return hexToRgba("#FF7551", 1);
-    if (hoveredIndex === index && (index === 1 || index === 3))
-      return "#0DAABC";
-    else if (hoveredIndex === index && (index === 2 || index === 4))
-      return "#6C5ECF";
-    return hexToRgba("#808191", 0.5);
+  const [hover, setHover] = useState<number | null>(null);
+  const handleMouseEnter = (itemId: number) => {
+    setHover(itemId);
   };
-
-  // Font weight function
-  const getFontWeight = (index: number) =>
-    index === 0 || hoveredIndex === index ? 600 : 400;
-
-  // Text color function
-  const getColor = (index: number) =>
-    index === 0 || hoveredIndex === index ? "white" : "#808191";
 
   return (
     <section>
@@ -28,33 +13,79 @@ export default function Menu() {
         MENU
       </p>
       <div className="mb-12 mt-6 flex flex-col gap-8">
-        {menu.map(({ name, icon: Icon }: MenuItem, index) => (
-          <div
-            key={name}
-            className="menu-item flex cursor-pointer items-center gap-4"
-            onMouseEnter={() => setHoveredIndex(index)}
-            onMouseLeave={() => setHoveredIndex(null)}
-          >
-            <figure
-              className="flex h-8 w-8 items-center justify-center rounded-xl"
-              style={{
-                backgroundColor: getBackgroundColor(index),
-              }}
-            >
-              <Icon width={20} height={20} color={getColor(index)} />
-            </figure>
-            <p
-              className="text-[0.875rem] tracking-[0.01875rem]"
-              style={{
-                fontWeight: getFontWeight(index),
-                color: getColor(index),
-              }}
-            >
-              {name}
-            </p>
-          </div>
+        {menu.map(({ id, name, icon }: MenuItem) => (
+          <Menulist
+            id={id}
+            name={name}
+            icon={icon}
+            handleMouseEnter={handleMouseEnter}
+            hover={hover}
+            setHover={setHover}
+          />
         ))}
       </div>
     </section>
   );
 }
+
+interface MenuProps extends MenuItem {
+  hover: number | null;
+  setHover: (value: number | null) => void;
+  handleMouseEnter: (itemId: number) => void;
+}
+
+const Menulist = ({
+  id,
+  name,
+  icon: Icon,
+  handleMouseEnter,
+  hover,
+  setHover,
+}: MenuProps) => {
+  // For Icons
+  let iconStyles = ""; // Initialize with empty string as default
+  if (id === 1) {
+    iconStyles = "bg-[#FF7551]";
+  } else if (hover === id && (id === 2 || id === 4)) {
+    iconStyles = "bg-[#0DAABC] !bg-[#0DAABC]";
+  } else if (hover === id && (id === 3 || id === 5)) {
+    iconStyles = "bg-[#6C5ECF] !bg-[#6C5ECF]";
+  }
+
+  // For Text
+  let textStyles: string = "";
+  if (id === 1) {
+    textStyles = "text-white";
+  } else if (hover === id && (id === 2 || id === 4)) {
+    textStyles = "text-white";
+  } else if (hover === id && (id === 3 || id === 5)) {
+    textStyles = "text-white";
+  }
+
+  // For Icon
+  let iconColor: string = "";
+  if (id === 1) {
+    iconColor = "white";
+  } else if (hover !== id) {
+    iconColor = "#808191";
+  } else if (hover === id) {
+    iconColor = "white";
+  }
+  return (
+    <div
+      key={id}
+      className={`menu-item flex cursor-pointer items-center gap-4 ${id === 1 ? "white" : "text-[rgba(128,129,145)]"}`}
+      onMouseEnter={() => handleMouseEnter(id)}
+      onMouseLeave={() => setHover(null)}
+    >
+      <figure
+        className={`flex h-8 w-8 items-center justify-center rounded-xl ${id === 1 ? "bg-[#FF7551]" : "bg-[rgba(128,129,145,0.5)]"} ${iconStyles}`}
+      >
+        <Icon width={20} height={20} color={iconColor} />
+      </figure>
+      <p className={`text-[0.875rem] tracking-[0.01875rem] ${textStyles}`}>
+        {name}
+      </p>
+    </div>
+  );
+};

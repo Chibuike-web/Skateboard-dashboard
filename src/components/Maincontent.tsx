@@ -1,4 +1,4 @@
-import { CheckIcon1, CheckIcon2, CheckIcon3 } from "./icon";
+import { CheckIcon1, CheckIcon2, CheckIcon3 } from "./Icon";
 import Thomas from "../assets/Thomas.png";
 import Tony from "../assets/Tony.png";
 import AndyCover from "../assets/AndyWilliam.png";

@@ -19,9 +19,9 @@ export default function Navbar() {
             stroke="currentColor"
           >
             <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
               d="M21 21l-4.35-4.35M10 18a8 8 0 100-16 8 8 0 000 16z"
             />
           </svg>
@@ -65,7 +65,7 @@ export default function Navbar() {
                 r="3.6"
                 fill="#EC5252"
                 stroke="#1E2127"
-                stroke-width="1.2"
+                strokeWidth="1.2"
               />
             </svg>
           </figure>

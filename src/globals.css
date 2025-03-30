@@ -33,11 +33,3 @@ body {
   place-items: center;
   min-height: 100vh;
 }
-
-#root {
-  display: flex;
-  background-color: #1f1d2b;
-  width: 100%;
-  max-width: 1440px;
-  color: white;
-}
