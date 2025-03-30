@@ -1,4 +1,5 @@
-import { CheckIcon1, CheckIcon2, CheckIcon3 } from "./Icon";
+import { ReactNode } from "react";
+import { CheckIcon1, CheckIcon2, CheckIcon3 } from "./Icons";
 import Thomas from "../assets/Thomas.png";
 import Tony from "../assets/Tony.png";
 import AndyCover from "../assets/AndyWilliam.png";
@@ -10,7 +11,6 @@ import BudiProfile from "../assets/BudiHakimProfile.png";
 import WijayaCover from "../assets/WijayaAbadi.png";
 import WijayaProfile from "../assets/WijayaAbadiProfile.png";
 import "./styles.css";
-import { hexToRgba } from "./Data";
 
 export default function Maincontent() {
   return (
@@ -72,19 +72,21 @@ const DiscoverSection = () => {
   );
 };
 
-type CardData = {
+interface CardData {
+  id: number;
   readTime: number;
   coverImage: string;
   profileImage: string;
   name: string;
-  icon: JSX.Element;
+  icon: ReactNode;
   content: string;
   views: number;
   duration: number;
-};
+}
 
 const data: CardData[] = [
   {
+    id: 1,
     readTime: 7,
     coverImage: AndyCover,
     profileImage: AndyProfile,
@@ -95,6 +97,7 @@ const data: CardData[] = [
     duration: 2,
   },
   {
+    id: 2,
     readTime: 7,
     coverImage: JohnyCover,
     profileImage: JohnyProfile,
@@ -105,6 +108,7 @@ const data: CardData[] = [
     duration: 2,
   },
   {
+    id: 3,
     readTime: 7,
     coverImage: BudiCover,
     profileImage: BudiProfile,
@@ -115,6 +119,7 @@ const data: CardData[] = [
     duration: 2,
   },
   {
+    id: 4,
     readTime: 7,
     coverImage: WijayaCover,
     profileImage: WijayaProfile,
@@ -133,9 +138,10 @@ const MostWatched = () => {
         Most Watched
       </h2>
       <div className="flex gap-5">
-        {data.map((datum, index) => (
+        {data.map((datum) => (
           <CardComponent
-            index={index}
+            key={datum.id}
+            id={datum.id}
             readTime={datum.readTime}
             coverImage={datum.coverImage}
             profileImage={datum.profileImage}
@@ -151,20 +157,10 @@ const MostWatched = () => {
   );
 };
 
-type CardProps = {
-  index: number;
-  readTime: number;
-  coverImage: string;
-  profileImage: string;
-  name: string;
-  icon: JSX.Element;
-  content: string;
-  views: number;
-  duration: number;
-};
+interface CardProps extends CardData {}
 
 const CardComponent = ({
-  index,
+  id,
   readTime,
   coverImage,
   profileImage,
@@ -183,8 +179,7 @@ const CardComponent = ({
         </figure>
         <time
           dateTime={`${readTime} minutes`}
-          className="absolute right-[10px] top-[10px] flex h-[20px] w-[46px] items-center justify-center rounded-[7px] text-[10px] font-medium tracking-[0.5px]"
-          style={{ backgroundColor: hexToRgba("242730", 0.5) }}
+          className="absolute right-[10px] top-[10px] flex h-[20px] w-[46px] items-center justify-center rounded-[7px] bg-[#242730]/50 text-[10px] font-medium tracking-[0.5px]"
         >
           {readTime} min
         </time>
@@ -207,7 +202,7 @@ const CardComponent = ({
           <span
             className="h-2 w-2 rounded-full"
             style={{
-              backgroundColor: index == 1 || index == 2 ? "#FF7551" : "#22B07D",
+              backgroundColor: id == 2 || id == 3 ? "#FF7551" : "#22B07D",
             }}
             aria-label="Online"
           ></span>

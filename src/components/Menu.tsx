@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { MenuItem, menu, hexToRgba } from "./Data";
+import { MenuItem, menu } from "./Data";
 
 export default function Menu() {
   const [hover, setHover] = useState<number | null>(null);
@@ -15,6 +15,7 @@ export default function Menu() {
       <div className="mb-12 mt-6 flex flex-col gap-8">
         {menu.map(({ id, name, icon }: MenuItem) => (
           <Menulist
+            key={id}
             id={id}
             name={name}
             icon={icon}
@@ -34,7 +35,7 @@ interface MenuProps extends MenuItem {
   handleMouseEnter: (itemId: number) => void;
 }
 
-const Menulist = ({
+export const Menulist = ({
   id,
   name,
   icon: Icon,
@@ -43,7 +44,7 @@ const Menulist = ({
   setHover,
 }: MenuProps) => {
   // For Icons
-  let iconStyles = ""; // Initialize with empty string as default
+  let iconStyles = "";
   if (id === 1) {
     iconStyles = "bg-[#FF7551]";
   } else if (hover === id && (id === 2 || id === 4)) {
@@ -55,11 +56,9 @@ const Menulist = ({
   // For Text
   let textStyles: string = "";
   if (id === 1) {
-    textStyles = "text-white";
-  } else if (hover === id && (id === 2 || id === 4)) {
-    textStyles = "text-white";
-  } else if (hover === id && (id === 3 || id === 5)) {
-    textStyles = "text-white";
+    textStyles = "text-white font-semibold";
+  } else if (hover === id) {
+    textStyles = "text-white font-semibold";
   }
 
   // For Icon
