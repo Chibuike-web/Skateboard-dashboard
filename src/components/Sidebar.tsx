@@ -20,9 +20,8 @@ export default function Sidebar() {
         {/* Toggle Button */}
         <div className="flex items-center space-x-5 pt-12">
           <button
-            className="flex h-[30px] w-[50px] items-center justify-end rounded-full p-[2px]"
+            className={`flex h-[30px] w-[50px] items-center justify-end rounded-full p-[2px] ${!toggle ? "bg-[#808191]" : "bg-[#6C5ECF]"}`}
             onClick={() => setToggle(!toggle)}
-            style={{ backgroundColor: !toggle ? "#808191" : "#6C5ECF" }}
           >
             <div
               className="duration-800 flex h-[26px] w-[26px] flex-col rounded-full bg-white transition-all ease-in-out"

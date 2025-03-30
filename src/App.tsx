@@ -5,10 +5,7 @@ import "./globals.css";
 
 export default function App() {
   return (
-    <div
-      className="grid w-full max-w-[1440px] bg-[#1f1d2b] text-white"
-      style={{ gridTemplateColumns: "auto 1fr" }}
-    >
+    <div className="grid w-full max-w-[1440px] grid-cols-[auto,1fr] bg-[#1f1d2b] text-white">
       <Sidebar />
       <div className="flex w-full flex-col">
         <Navbar />

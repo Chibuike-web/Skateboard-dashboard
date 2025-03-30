@@ -11,7 +11,6 @@ interface IconProps {
   color?: string;
   width?: number;
   height?: number;
-  style?: React.CSSProperties;
   className?: string;
 }
 
