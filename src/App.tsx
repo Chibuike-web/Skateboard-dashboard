@@ -1,16 +1,20 @@
-import Navbar from "./components/Navbar";
-import Sidebar from "./components/Sidebar";
-import Maincontent from "./components/Maincontent";
+import { BrowserRouter as Router, Routes, Route } from "react-router";
 import "./globals.css";
+import { Dashboard } from "./pages/Dashboard";
+import Discover from "./pages/Discover";
+import Trending from "./pages/Trending";
+import Streaming from "./pages/Streaming";
 
 export default function App() {
-  return (
-    <div className="grid w-full max-w-[1440px] grid-cols-[auto,1fr] bg-[#1f1d2b] text-white">
-      <Sidebar />
-      <div className="flex w-full flex-col">
-        <Navbar />
-        <Maincontent />
-      </div>
-    </div>
-  );
+	return (
+		<Router>
+			<Routes>
+				<Route path="/" element={<Dashboard />}>
+					<Route index element={<Discover />} />
+					<Route path="trending" element={<Trending />} />
+					<Route path="streaming" element={<Streaming />} />
+				</Route>
+			</Routes>
+		</Router>
+	);
 }

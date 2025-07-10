@@ -7,12 +7,12 @@
     auto;
   background-position:
     left top,
-    right -60px top -70px; /* Position gradient on the left and image as needed */
+    right -60px top -70px;
 }
 
 .content-two {
   background-image: url("../assets/SecondImage.png");
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: right bottom; /* Position gradient on the left and image as needed */
+  background-position: right bottom;
 }
