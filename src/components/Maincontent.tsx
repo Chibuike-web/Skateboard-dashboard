@@ -14,7 +14,7 @@ import "./styles.css";
 
 export default function Maincontent() {
 	return (
-		<div className="mx-auto flex w-full max-w-[1098px] flex-col gap-[64px] p-14 xl:px-0">
+		<div className="mx-auto flex w-full min-[1500px]:max-w-[1440px] flex-col gap-[64px] p-6 lg:p-14">
 			<DiscoverSection />
 			<MostWatched />
 		</div>
@@ -24,15 +24,15 @@ export default function Maincontent() {
 const DiscoverSection = () => {
 	return (
 		<div>
-			<h1 className="mb-7 text-[40px] font-semibold leading-[1em]">Discover</h1>
+			<h1 className="mb-7 text-[28px] lg:text-[40px] font-semibold leading-[1em]">Discover</h1>
 			<div className="flex flex-wrap gap-[21px]">
-				<div className="content-one w-[725px] rounded-3xl bg-[#0DAABC] p-10">
-					<h1 className="w-full max-w-[231px] text-[30px] font-semibold leading-[1.2] tracking-[0.3px]">
+				<div className="content-one w-full md:w-[calc(66.666%-10.5px)] flex flex-col gap-y-8 md:justify-between rounded-3xl bg-[#0DAABC] p-5 md:p-10">
+					<h2 className="w-full max-w-[231px] text-[24px] lg:text-[30px] font-semibold leading-[1.2] tracking-[0.3px]">
 						How to do Basic Jumping and how to landing safely
-					</h1>
-					<div className="flex items-center gap-4 pt-[30px]">
+					</h2>
+					<div className="flex items-center gap-4">
 						<figure className="relative">
-							<span className="flex h-[60px] w-[60px] items-center justify-center rounded-full border-[1px] border-white">
+							<span className="flex size-[60px] items-center justify-center rounded-full border-[1px] border-white">
 								<img src={Thomas} alt="ThomasImage" />
 							</span>
 							<span className="absolute bottom-0 right-0">
@@ -46,8 +46,8 @@ const DiscoverSection = () => {
 					</div>
 				</div>
 
-				<div className="content-two w-[352px] rounded-3xl bg-[#242730] p-10">
-					<h1 className="w-full max-w-[231px] text-[30px] font-semibold leading-[1.2] tracking-[0.3px]">
+				<div className="content-two w-full md:w-[calc(33.333%-10.5px)] rounded-3xl bg-[#242730] p-5 md:p-10">
+					<h1 className="w-full max-w-[231px] text-[24px] lg:text-[30px] font-semibold leading-[1.2] tracking-[0.3px]">
 						Skateboard Tips You need to know
 					</h1>
 					<div className="pt-[20px]">
@@ -55,7 +55,7 @@ const DiscoverSection = () => {
 						<p className="text-[12px] tracking-[0.5px] opacity-80">53K views • 2 weeks</p>
 					</div>
 					<figure className="relative w-fit pt-[20px]">
-						<span className="flex h-[60px] w-[60px] items-center justify-center rounded-full border-[1px] border-white">
+						<span className="flex size-[60px] items-center justify-center rounded-full border-[1px] border-white">
 							<img src={Tony} alt="ThomasImage" />
 						</span>
 						<span className="absolute bottom-0 right-0">
@@ -130,8 +130,8 @@ const data: CardData[] = [
 const MostWatched = () => {
 	return (
 		<div className="flex flex-col">
-			<h2 className="mb-7 text-[28px] font-medium leading-[28px]">Most Watched</h2>
-			<div className="grid grid-cols-[repeat(auto-fit,minmax(256px,1fr))] gap-6">
+			<h2 className="mb-7 text-[28px] lg:text-[40px] font-medium leading-[28px]">Most Watched</h2>
+			<div className="grid grid-cols-[repeat(auto-fit,minmax(230px,1fr))] gap-6">
 				{data.map((datum) => (
 					<CardComponent
 						key={datum.id}

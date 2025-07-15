@@ -8,9 +8,11 @@ export default function Category() {
 		setHoverId(itemId);
 	};
 	return (
-		<section>
-			<p className="text-[11px] font-semibold tracking-[1.5px] opacity-50">CATEGORY</p>
-			<div className="mb-12 mt-6 flex flex-col gap-8">
+		<section className="w-full">
+			<p className="text-[11px] font-semibold tracking-[1.5px] opacity-50 hidden min-[1200px]:block">
+				CATEGORY
+			</p>
+			<div className="mb-12 mt-6 w-full flex flex-col gap-8">
 				{category.map(({ id, name, icon }: MenuItem) => (
 					<Menulist
 						key={id}

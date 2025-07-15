@@ -9,9 +9,11 @@ export default function Menu() {
 	};
 
 	return (
-		<section>
-			<p className="text-[0.6875rem] font-semibold tracking-[0.09375rem] opacity-50">MENU</p>
-			<div className="mb-12 mt-6 flex flex-col gap-8">
+		<section className="w-max">
+			<p className="text-[0.6875rem] font-semibold tracking-[0.09375rem] opacity-50 hidden min-[1200px]:block">
+				MENU
+			</p>
+			<div className="mb-12 mt-6 w-max flex flex-col gap-8">
 				{menu.map(({ id, name, icon, link }: MenuItem) => (
 					<Menulist
 						key={id}
@@ -92,7 +94,11 @@ export const Menulist = ({
 			>
 				<Icon width={20} height={20} />
 			</figure>
-			<p className={`text-[0.875rem] tracking-[0.01875rem] ${textStyles}`}>{name}</p>
+			<p
+				className={`text-[0.875rem] hidden min-[1200px]:block tracking-[0.01875rem] ${textStyles}`}
+			>
+				{name}
+			</p>
 		</NavLink>
 	);
 };
