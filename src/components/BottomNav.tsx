@@ -5,7 +5,7 @@ import { ComponentType } from "react";
 export default function BottomNav() {
 	return (
 		<div className="fixed sm:hidden bg-[#1f1d2b] h-20 left-0 right-0 bottom-0 flex items-center justify-center">
-			<div className="px-6 w-full justify-between flex gap-8">
+			<div className="px-6 w-full justify-between flex ">
 				{menu.map(({ id, name, icon, link }: MenuItem) => (
 					<MobileMenulist key={id} id={id} name={name} icon={icon} link={link} />
 				))}
