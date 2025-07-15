@@ -14,7 +14,7 @@ import "./styles.css";
 
 export default function Maincontent() {
 	return (
-		<div className="mx-auto flex w-full min-[1500px]:max-w-[1440px] flex-col gap-[64px] p-6 lg:p-14">
+		<div className="mx-auto flex w-full min-[1500px]:max-w-[1440px] flex-col gap-[64px] px-6 pt-6 pb-30 lg:p-14">
 			<DiscoverSection />
 			<MostWatched />
 		</div>
